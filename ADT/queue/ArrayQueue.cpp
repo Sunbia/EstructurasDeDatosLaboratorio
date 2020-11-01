@@ -63,8 +63,22 @@ void ArrayQueue::enqueue(element_t e)
   
 void ArrayQueue::dequeue()
 {
-  element_t *aux = &_container[_front];
-  delete aux;
-  _front--;
+  element_t *aux;
+  if (_front == _back)
+  {
+    aux = &_container[_back];
+    _back--;
+    _front--;
+    _size--;
+  }
+  else
+  {
+    aux = &_container[_front];
+    delete aux;
+    _front--;
+    _size--;
+  }
+  
+  
 }
 

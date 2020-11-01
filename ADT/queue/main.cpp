@@ -46,6 +46,8 @@ int main(int argc, char const *argv[])
       (test->empty()) ? (cout << "La cola esta vacia" << endl) : 
                         (cout << "La cola esta ocupada" << endl);
       break;
+    case '7':
+      break;
     default:
       cout << "Seleccione una opcion correcta" << endl;
       break;
