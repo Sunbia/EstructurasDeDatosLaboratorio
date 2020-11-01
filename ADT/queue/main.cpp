@@ -2,49 +2,52 @@
 #include <cstdlib>
 #include "ArrayQueue.hpp"
 #include "ListQueue.hpp"
+using std::cout;
+using std::endl;
+using std::cin;
 
 int main(int argc, char const *argv[])
 {
   QueueADT *test = new ArrayQueue(); // Se crea una cola abstracta de tipo array
   char sw;
   element_t element;
-  std::cout << "1.Enqueue" << std::endl;
-  std::cout << "2.Dequeue" << std::endl;
-  std::cout << "3.Size" << std::endl;
-  std::cout << "4.Front" << std::endl;
-  std::cout << "5.Back" << std::endl;
-  std::cout << "6.Is Empty" << std::endl;
-  std::cout << "7.Exit" << std::endl;
+  cout << "1.Enqueue" << endl;
+  cout << "2.Dequeue" << endl;
+  cout << "3.Size" << endl;
+  cout << "4.Front" << endl;
+  cout << "5.Back" << endl;
+  cout << "6.Is Empty" << endl;
+  cout << "7.Exit" << endl;
   do
   {
-    std::cout << "Ingrese una opcion:" << std::endl;
-    std::cin >> sw;
+    cout << "Ingrese una opcion:" << endl;
+    cin >> sw;
     switch (sw)
     {
     case '1':
-      std::cout << "ingrese un valor:" << std::endl;
-      std::cin >> element;
+      cout << "ingrese un valor:" << endl;
+      cin >> element;
       test->enqueue(element);
       break;
     case '2':
-      std::cout << "Se elimino el valor: " << test->front() << std::endl;
+      cout << "Se elimino el valor: " << test->front() << endl;
       test->dequeue();
       break;
     case '3':
-      std::cout << test->size() << std::endl;
+      cout << "Size:"<< test->size() << endl;
       break;
     case '4':
-      std::cout << test->front() << std::endl;
+      cout << "Front:"<<test->front() << endl;
       break;
     case '5':
-      std::cout << test->back() << std::endl;
+      cout << "Back:"<<test->back() << endl;
       break;
     case '6':
-      (test->empty()) ? (std::cout << "La cola esta vacia" << std::endl) : 
-                      (std::cout << "La cola esta ocupada" << std::endl);
+      (test->empty()) ? (cout << "La cola esta vacia" << endl) : 
+                        (cout << "La cola esta ocupada" << endl);
       break;
     default:
-      std::cout << "Seleccione una opcion correcta" << std::endl;
+      cout << "Seleccione una opcion correcta" << endl;
       break;
     }
   } while (sw != '7');
