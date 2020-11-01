@@ -2,38 +2,60 @@
 #include <cstdlib>
 #include "ArrayQueue.hpp"
 #define MAX 100
-ArrayQueue::ArrayQueue(){
-  _container=new int[MAX];
-  _front=-1;
-  _back=-1;
-  _size=0;
+ArrayQueue::ArrayQueue()
+{
+  _container = new int[MAX];
+  _front = -1;
+  _back = -1;
+  _size = 0;
 }
-ArrayQueue::~ArrayQueue(){
-  delete [] _container;
+
+ArrayQueue::~ArrayQueue()
+{
+  delete[] _container;
 }
-bool ArrayQueue::empty(){
-  // Insert your code here
-  //change the return according to your implementation
-  return true;
+
+bool ArrayQueue::empty()
+{
+  return (_size == 0) ? true : false;
 }
-int ArrayQueue::size(){
-  // Insert your code here
-  //change the return according to your implementation
-  return 0;
+
+int ArrayQueue::size()
+{
+  return _size;
 }
-element_t ArrayQueue::front(){
-  // Insert your code here
-  //change the return according to your implementation
-  return 0;
+
+element_t ArrayQueue::front()
+{
+  return _container[_front];
 }
-element_t ArrayQueue::back(){
-  // Insert your code here
-  //change the return according to your implementation
-  return 0;
+
+element_t ArrayQueue::back()
+{
+  return _container[_back];
 }
-void ArrayQueue::enqueue(element_t e){
-  // Insert your code here
+
+void ArrayQueue::enqueue(element_t e)
+{
+  if (this->empty())
+  {
+    _container[0] = e;
+    _front++;
+    _back++;
+    _size++;
+  }
+  else
+  {
+    _container[_size] = e;
+    _front++;
+    _size++;
+  }
 }
-void ArrayQueue::dequeue(){
-  // Insert your code here
+  
+void ArrayQueue::dequeue()
+{
+  element_t *aux = &_container[_front];
+  delete aux;
+  _front--;
 }
+
