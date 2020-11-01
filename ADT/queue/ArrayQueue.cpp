@@ -27,11 +27,20 @@ int ArrayQueue::size()
 
 element_t ArrayQueue::front()
 {
+  if (_front < 0)
+  {
+    return _front;
+  }
+  
   return _container[_front];
 }
 
 element_t ArrayQueue::back()
 {
+  if (_back < 0)
+  {
+    return _back;
+  }
   return _container[_back];
 }
 
