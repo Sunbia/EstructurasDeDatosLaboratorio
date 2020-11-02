@@ -2,13 +2,14 @@
 #include <cstdlib>
 #include "ArrayQueue.hpp"
 #include "ListQueue.hpp"
+using std::cin;
 using std::cout;
 using std::endl;
-using std::cin;
 
 int main(int argc, char const *argv[])
 {
-  QueueADT *test = new ArrayQueue(); // Se crea una cola abstracta de tipo array
+  // Se crea una cola abstracta de tipo array/list
+  QueueADT *test = new ListQueue();
   char sw;
   element_t element;
   cout << "1.Enqueue" << endl;
@@ -34,17 +35,16 @@ int main(int argc, char const *argv[])
       test->dequeue();
       break;
     case '3':
-      cout << "Size:"<< test->size() << endl;
+      cout << "Size:" << test->size() << endl;
       break;
     case '4':
-      cout << "Front:"<<test->front() << endl;
+      cout << "Front:" << test->front() << endl;
       break;
     case '5':
-      cout << "Back:"<<test->back() << endl;
+      cout << "Back:" << test->back() << endl;
       break;
     case '6':
-      (test->empty()) ? (cout << "La cola esta vacia" << endl) : 
-                        (cout << "La cola esta ocupada" << endl);
+      (test->empty()) ? (cout << "La cola esta vacia" << endl) : (cout << "La cola esta ocupada" << endl);
       break;
     case '7':
       break;
