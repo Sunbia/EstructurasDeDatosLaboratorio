@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstdlib>
-#include "ArrayQueue.hpp"
+// #include "ArrayQueue.hpp" (1)
 #include "ListQueue.hpp"
 using std::cin;
 using std::cout;
@@ -10,6 +10,7 @@ int main(int argc, char const *argv[])
 {
   // Se crea una cola abstracta de tipo array/list
   QueueADT *test = new ListQueue();
+  // QueueADT *test = new ArrayQueue(); (1)
   char sw;
   element_t element;
   cout << "1.Enqueue" << endl;

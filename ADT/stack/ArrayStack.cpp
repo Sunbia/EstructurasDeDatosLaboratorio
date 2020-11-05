@@ -2,32 +2,49 @@
 #include "ArrayStack.hpp"
 #define MAX 10
 
-ArrayStack::ArrayStack(){
-  _container=new int[MAX];
-  _last=-1;
+ArrayStack::ArrayStack()
+{
+  _container = new int[MAX];
+  _last = -1;
 }
-ArrayStack::~ArrayStack(){
-  delete [] _container;
-}
-bool ArrayStack::empty(){
-  // Insert your code here
-  //change the return according to your implementation
-    return false;
 
+ArrayStack::~ArrayStack()
+{
+  delete[] _container;
 }
-int ArrayStack::size(){
-  // Insert your code here
-  //change the return according to your implementation
+
+bool ArrayStack::empty()
+{
+  return _last > -1 ? true : false;
+}
+
+int ArrayStack::size()
+{
+  if (this->empty() == false)
+  {
+    return _last + 1;
+  }
+
   return 0;
 }
-element_t ArrayStack::top(){
-    // Insert your code here
-    //change the return according to your implementation
-  return 0;
+
+element_t ArrayStack::top()
+{
+  if (this->empty() == false)
+  {
+    return _container[_last];
+  }
 }
-void ArrayStack::push(element_t e){
-  // Insert your code her
+
+void ArrayStack::push(element_t e)
+{
+  _container[_last + 1] = e;
+  _last++;
 }
-void ArrayStack::pop(){
-  // Insert your code here
+
+void ArrayStack::pop()
+{
+  element_t *aux = &_container[_last];
+  delete aux;
+  _last--;
 }

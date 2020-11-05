@@ -1,16 +1,18 @@
 #include "QueueADT.hpp"
-
-struct node{
+struct node
+{
   int e;
   node *next;
 };
 
-class ListQueue : public QueueADT{
- private:
+class ListQueue : public QueueADT
+{
+private:
   node *_front;
   node *_back;
   int _size;
- public:
+
+public:
   ListQueue();
   ~ListQueue();
   bool empty();
