@@ -56,6 +56,33 @@ class StackADT {
 ```
 Implemente el método `element_t pop()` que retorna el último elemento y lo quita del stack.
 
+  - Array: 
+      ```cpp
+       element_t ArrayStack::pop()
+       {
+         element_t _top_ = _container[last];
+         element_t *aux = &_container[_last];
+         delete aux;
+         _last--;
+         return _top_;
+       }
+      ```
+  - Linked list:
+     ```cpp
+     element_t ListStack::pop()
+     {
+       if (this->empty())
+       {
+         return;
+       }
+       element_t _top_ = _top->e;
+       node *aux = _top;
+       _top = _top->next;
+       delete aux;
+       _size--;
+       return _top_;
+     }
+     ```
 4. Suponga que no existe el atributo `_size` que guarda el tamaño de un stack (o queue). Implemente la función `int size()`.
 
 5. En la implementación de Stack mediante arreglos, se pide implementar la función `push(element_t)`. Cuando el arreglo se llene, esta función debe aumentar el tamaño del arreglo.
