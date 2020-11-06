@@ -38,13 +38,31 @@ element_t ArrayStack::top()
 
 void ArrayStack::push(element_t e)
 {
-  _container[_last + 1] = e;
-  _last++;
+  if (_last + 1 >= MAX)
+  {
+    element_t *resize = new element_t[_last + 2];
+    for (int i = 0; i < _last; i++)
+    {
+      resize[i] = _container[i];
+    }
+    delete[] _container;
+    _container = resize;
+    _container[_last + 1] = e;
+    _last++;
+  }
+  else
+  {
+    _container[_last + 1] = e;
+    _last++;
+  }
 }
 
 void ArrayStack::pop()
 {
-  element_t *aux = &_container[_last];
-  delete aux;
-  _last--;
+  if (this->empty() == false)
+  {
+    element_t *aux = &_container[_last];
+    delete aux;
+    _last--;
+  }
 }

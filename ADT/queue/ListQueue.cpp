@@ -11,15 +11,12 @@ ListQueue::ListQueue()
 
 ListQueue::~ListQueue()
 {
-  node *aux = _back->next;
-  while (_back != _front)
+  node *aux = _front;
+  while (aux != NULL)
   {
     delete _back;
-    _back = aux;
+    _front = _front->next;
   }
-
-  delete _front;
-  delete aux;
 }
 
 bool ListQueue::empty()
@@ -63,7 +60,7 @@ void ListQueue::enqueue(element_t e)
 
 void ListQueue::dequeue()
 {
-  node *aux = _back->next;
-  delete _back;
-  _back = aux;
+  node *aux = _front;
+  _front = _front->next
+               _back = aux;
 }
