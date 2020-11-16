@@ -62,5 +62,5 @@ void ListQueue::dequeue()
 {
   node *aux = _front;
   _front = _front->next
-               _back = aux;
+ delete aux;
 }
